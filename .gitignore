@@ -1,0 +1,12 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/PetProject/.vs
+/PetProject/PetProject/bin/Debug/net8.0
+/PetProject/PetProject/obj
+/PetProject/WebAPI/bin/Debug/net8.0
+/PetProject/WebAPI/obj
+/PetProject/WebClient/bin/Debug/net8.0
+/PetProject/WebClient/obj
