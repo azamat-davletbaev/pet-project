@@ -10,3 +10,6 @@
 /PetProject/WebAPI/obj
 /PetProject/WebClient/bin/Debug/net8.0
 /PetProject/WebClient/obj
+/PetProject/DataService/bin/Debug/net8.0
+/PetProject/DataService/bin/Release/net8.0
+/PetProject/DataService/obj
