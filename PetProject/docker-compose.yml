@@ -1,0 +1,57 @@
+version: "3.8"
+
+networks:
+  pet_network:
+    driver: bridge
+    ipam:
+        driver: default
+        config:
+            - subnet: 172.16.0.0/28    
+services:
+    webapi:
+        build: 
+          context: .
+          dockerfile: ./WebAPI/Dockerfile
+        ports:
+          - "5000:80"
+        environment:
+          - ASPNETCORE_ENVIRONMENT=Development
+        volumes:
+          - ./WebAPI:/app
+        depends_on:
+          - postgres
+          - rmq
+    rmq:
+        hostname: 'rmq'
+        image: rabbitmq:3-management
+        restart: always
+        volumes:
+            - rmq:/var/lib/rabbitmq
+        ports:
+            - "5672:5672"
+            - "15672:15672"
+        networks:
+            - pet_network
+        environment:
+            - AGENT_LOGIN=guest
+            - AGENT_PASSWORD=guest
+    postgres:
+        hostname: 'postgres'
+        image: 'postgres'
+        restart: always
+        volumes:
+            - postgres_data:/var/lib/postgres_data
+        ports:
+            - '5432:5432'
+        networks:
+            - pet_network
+        environment:
+            - POSTGRES_PASSWORD=postgres 
+            - POSTGRESS_USER=postgres    
+volumes:
+    rmq:
+       driver: local
+    postgres_data:
+       driver: local
+    
+

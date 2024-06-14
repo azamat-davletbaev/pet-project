@@ -18,12 +18,17 @@ namespace WebClient.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult CashExpenses()
         {
             return View();
         }
 
-        public IActionResult Report()
+        public IActionResult Expense()
+        {
+            return View();
+        }
+
+        public IActionResult Users()
         {
             return View();
         }
