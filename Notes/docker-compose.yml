@@ -11,13 +11,13 @@ services:
     webapi:
         build: 
           context: .
-          dockerfile: ./WebAPI/Dockerfile
+          dockerfile: ./Notes.WebAPI/Dockerfile
         ports:
           - "5000:80"
         environment:
           - ASPNETCORE_ENVIRONMENT=Development
         volumes:
-          - ./WebAPI:/app
+          - ./Notes.WebAPI:/app
         depends_on:
           - postgres
           - rmq

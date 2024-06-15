@@ -25,7 +25,6 @@ namespace DataService
 
                 var db = ServiceProvider.GetService<IDataProvider>();
                 var users = db.GetAllUsers();
-
             }
         }        
     }

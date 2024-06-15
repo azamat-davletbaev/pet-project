@@ -28,10 +28,11 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Queue\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebAPI\WebAPI.csproj" />
+    <ProjectReference Include="..\Notes.WebAPI\Notes.WebAPI.csproj" />
   </ItemGroup>
 
 </Project>
