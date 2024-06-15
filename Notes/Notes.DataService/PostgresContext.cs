@@ -1,4 +1,4 @@
-﻿using DataService.Tables;
+﻿using Notes.DataService.DB;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using System.Reflection.Emit;
 
-namespace DataService
+namespace Notes.DataService
 {
     public class PostgresContext : DbContext
     {

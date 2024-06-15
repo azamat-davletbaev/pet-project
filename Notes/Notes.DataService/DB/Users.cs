@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataService.Tables
+namespace Notes.DataService.DB
 {
     /// <summary>
     /// Таблица "Пользователи"

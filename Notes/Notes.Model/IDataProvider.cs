@@ -1,6 +1,5 @@
-﻿using WebAPI.Model;
-
-namespace WebAPI.DI
+﻿
+namespace Notes.Model
 {
     public interface IDataProvider
     {

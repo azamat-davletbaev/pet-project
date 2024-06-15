@@ -1,4 +1,4 @@
-﻿namespace WebAPI.Model
+﻿namespace Notes.Model
 {
     public class User
     {

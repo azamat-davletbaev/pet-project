@@ -1,40 +1,33 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebAPI.DI;
-using WebAPI.Model;
+using Notes.Model;
+using User = Notes.Model.User;
+using Note = Notes.Model.Note;
 
-namespace DataService.Data
+namespace Notes.DataService
 {
     public class DataProvider : IDataProvider
     {
         private PostgresContext ctx;
-        public DataProvider(PostgresContext _ctx)
-        {
-            ctx = _ctx;
-        }
-
+        public DataProvider(PostgresContext _ctx) => ctx = _ctx;
+        
         public bool AddNote(Note note)
         {
-            return false;   
+            return default;
         }
 
         public bool AddUser(User user)
         {
-            return false;
+            return default;
         }
 
         public IEnumerable<User> GetAllUsers()
         {
-            return ctx.Users.Include(z => z.Notes).Select(u => new User 
+            return ctx.Users.Include(z => z.Notes).Select(u => new User
             {
                 Id = u.Id,
                 Name = u.Name,
-                Notes = u.Notes.Select(n => new Note 
-                { 
+                Notes = u.Notes.Select(n => new Note
+                {
                     Id = n.Id,
                     UserId = n.UserId,
                     Date = n.Date,
@@ -43,35 +36,35 @@ namespace DataService.Data
                 }).ToList()
             });
         }
-
+                
         public IEnumerable<Note> GetNotesByUser(int UserId)
         {
             return default;
         }
-
+                
         public User GetUser(int Id)
         {
             return default;
         }
-
+        
         public bool RemoveNote(int Id)
         {
-            return false;
+            return default;
         }
 
         public bool RemoveUser(int Id)
         {
-            return false;
+            return default;
         }
 
         public bool UpdateNote(Note note)
         {
-            return false;
+            return default;
         }
-
+                
         public bool UpdateUser(User user)
         {
-            return false;
+            return default;
         }
     }
 }

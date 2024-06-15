@@ -9,17 +9,17 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["WebClient/WebClient.csproj", "WebClient/"]
-RUN dotnet restore "./WebClient/WebClient.csproj"
+COPY ["Notes.WebClient/Notes.WebClient.csproj", "Notes.WebClient/"]
+RUN dotnet restore "./Notes.WebClient/Notes.WebClient.csproj"
 COPY . .
-WORKDIR "/src/WebClient"
-RUN dotnet build "./WebClient.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/Notes.WebClient"
+RUN dotnet build "./Notes.WebClient.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./WebClient.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Notes.WebClient.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "WebClient.dll"]
+ENTRYPOINT ["dotnet", "Notes.WebClient.dll"]

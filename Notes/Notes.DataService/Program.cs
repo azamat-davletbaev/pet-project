@@ -1,18 +1,11 @@
-﻿using DataService.Tables;
-using Microsoft.EntityFrameworkCore;
-using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
-using System;
-using System.Text;
-using Microsoft.Extensions.DependencyInjection;
-using WebAPI.DI;
-using DataService.Data;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Notes.Model;
 
-namespace DataService
+namespace Notes.DataService
 {
     internal class Program
     {
-        public static IServiceProvider ServiceProvider { get; private set; }
+        public static IServiceProvider ServiceProvider = DI.Services.ServiceProvider;
 
         static void Main(string[] args)
         {
@@ -26,6 +19,6 @@ namespace DataService
                 var db = ServiceProvider.GetService<IDataProvider>();
                 var users = db.GetAllUsers();
             }
-        }        
+        }
     }
 }
