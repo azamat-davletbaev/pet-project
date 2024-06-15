@@ -19,3 +19,7 @@
 /Notes/Notes.WebAPI/obj
 /Notes/Notes.WebClient/bin/Debug/net8.0
 /Notes/Notes.WebClient/obj
+/Notes/Notes.DI/bin/Debug/net8.0
+/Notes/Notes.DI/obj
+/Notes/Notes.Model/bin/Debug/net8.0
+/Notes/Notes.Model/obj
