@@ -1,3 +1,13 @@
+using EasyNetQ;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Bson;
+using Notes.DI;
+using Notes.Model;
+using Notes.WebAPI;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System.Text;
 
 namespace WebAPI
 {
@@ -7,16 +17,18 @@ namespace WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            //builder.Services.AddSingleton<IQueue>(z => new Queue(QueueSettings.QueueName, QueueSettings.HostName, QueueSettings.UserName, QueueSettings.Password));
+            //builder.Services.AddHostedService<RabbitMQBackgroundService>();
+            //builder.Services.AddSingleton(RabbitHutch.CreateBus($"host={QueueSettings.HostName};username={QueueSettings.UserName};password={QueueSettings.Password}"));
+
+            //builder.Services.AddSingleton<IMessageHandler, OrderMessageHandler>();
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-
+            builder.Services.AddSwaggerGen();            
+            
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -24,13 +36,9 @@ namespace WebAPI
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
-
             app.MapControllers();
-
             app.Run();
-        }
+        }        
     }
 }
