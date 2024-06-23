@@ -5,7 +5,7 @@ namespace Notes.Model
     {
         public IEnumerable<User> GetAllUsers();
         public User GetUser(int Id);
-        public IEnumerable<Note> GetNotesByUser(int UserId);
+        public IEnumerable<Note> GetNotesByUser(int Id);
         
         public bool AddUser(User user);
         public bool AddNote(Note note);
